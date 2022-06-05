@@ -6,23 +6,29 @@ using Proiect.Utilities;
 using Proiect.Services;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Proiect.Configuration;
+
 namespace Proiect
 {
     public static class Startup
     {
         public static WebApplication InitializeApp(string[] args)
         {
+
+            
             var builder = WebApplication.CreateBuilder(args);
             ConfigureServices(builder);
-
             var app = builder.Build();
+           
             Configure(app);
             return app;
         }
         private static void ConfigureServices(WebApplicationBuilder builder)
         {
+
+            //builder.Services.Configure<JwtConfig>("xcacafhgjhgjfhgjfghjfghjfghjfghjfhgj");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-           options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
+            options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
            
             builder.Services.AddControllers();
             builder.Services.AddControllers().AddJsonOptions(x =>
