@@ -29,7 +29,10 @@ namespace Proiect
             //builder.Services.Configure<JwtConfig>("xcacafhgjhgjfhgjfghjfghjfghjfghjfhgj");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;"));
-           
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsImplementationPolicy", builder => builder.WithOrigins("*"));
+            });
             builder.Services.AddControllers();
             builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -56,7 +59,7 @@ namespace Proiect
             app.UseHttpsRedirection();
             app.UseMiddleware<JWTMiddleware>();
             app.UseAuthorization();
-
+            app.UseCors("MyCorsImplementationPolicy");
             app.MapControllers();
         }
     }

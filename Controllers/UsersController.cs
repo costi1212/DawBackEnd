@@ -5,11 +5,12 @@ using BCryptNet = BCrypt.Net.BCrypt;
 using Proiect.Models.DTOs;
 using Proiect.Services;
 using Proiect.Utilities.Attributes;
-using System.Web.Http.Cors;
+using Microsoft.AspNetCore.Cors;
 
 namespace Proiect.Controllers
 
 {
+    
     [ApiController]
     [Route("[controller]")]
     
@@ -41,8 +42,9 @@ namespace Proiect.Controllers
 
             return Ok(response);
         }
-        [EnableCors(origins: "http://localhost:4200 ", headers: "*", methods: "*")]
+        
         [HttpPost]
+        [EnableCors("MyCorsImplementationPolicy")]
         public async Task<IActionResult>CreateUser(UserRequestDTO user)
         {
             var userToCreate = new User

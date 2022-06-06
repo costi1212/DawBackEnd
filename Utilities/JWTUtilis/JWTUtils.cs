@@ -23,7 +23,7 @@ namespace Proiect.Utilities
         public string GenerateJWTToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var appPrivateKey = Encoding.ASCII.GetBytes("Vreau-5-plsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            var appPrivateKey = Encoding.ASCII.GetBytes("torkwertertyertyeyrtytokrnsercfretvceva");
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -43,7 +43,7 @@ namespace Proiect.Utilities
                 return Guid.Empty;
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var appPrivateKey = Encoding.ASCII.GetBytes("Vreau-5-plsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            var appPrivateKey = Encoding.ASCII.GetBytes("torkwertertyertyeyrtytokrnsercfretvceva");
 
             var tokenValidationParameters = new TokenValidationParameters
             {
